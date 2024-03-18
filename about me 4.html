@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SzBenedek2006 - Personal Website</title>
+    <style>
+        body {
+            font-family: 'Source Code Pro', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            background-image: url('background-image.jpg'); /* Specify the path to your background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* Changed opacity for translucency */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px); /* Adds blur effect */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2); /* Added glow effect */
+            z-index: -1;
+            filter: blur(20px);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #000;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .about-me {
+            font-family: 'Open Sans', medium;
+            text-align: justify;
+            background-color: rgba(255, 255, 255, 0.2); /* Changed opacity for translucency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px); /* Adds blur effect */
+            color: #000;
+        }
+
+        .bottom-bar {
+            color: #fff; /* Text color */
+            text-align: center; /* Center-align text */
+            padding: 10px; /* Adjust padding as needed */
+            position: fixed; /* Fixed position at the bottom */
+            left: 0;
+            bottom: 0;
+            width: 100%; /* Full width */
+            background-color: rgba(255, 255, 255, 0.1); /* Changed opacity for translucency */
+            backdrop-filter: blur(5px); /* Adds blur effect */
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-img">
+                <img id="profile-image" src="" alt="Profile Image">
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/SzBenedek2006" target="_blank">GitHub</a>
+                <a href="https://www.instagram.com/szbenedek2006" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <div class="about-me">
+            <h2>Welcome to my personal website!</h2>
+            <p>I'm Benedek, a beginner programmer and photographer based in Hungary. I'm interested in low-level programming, especially in C, and Assembly. When I'm not coding, you can find me hiking in the nearby woods with my dog or a camera. Feel free to check out my GitHub and Insta profiles to see my latest projects and photos.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript to dynamically update profile image -->
+    <script>
+        // Fetch profile image from GitHub or Instagram
+        fetchProfileImage();
+
+        async function fetchProfileImage() {
+            try {
+                // Fetching profile image from GitHub
+                let githubResponse = await fetch('https://api.github.com/users/SzBenedek2006');
+                let githubData = await githubResponse.json();
+                document.getElementById('profile-image').src = githubData.avatar_url;
+            } catch (error) {
+                console.error('Error fetching GitHub profile image:', error);
+                try {
+                    // Fetching profile image from Instagram
+                    let instagramResponse = await fetch('https://www.instagram.com/szbenedek2006/?__a=1');
+                    let instagramData = await instagramResponse.json();
+                    let profilePicURL = instagramData.graphql.user.profile_pic_url_hd;
+                    document.getElementById('profile-image').src = profilePicURL;
+                } catch (error) {
+                    console.error('Error fetching Instagram profile image:', error);
+                }
+            }
+        }
+    </script>
+
+    <div class="bottom-bar">
+        <p>This is the bottom bar content. You can customize it as needed.</p>
+    </div>
+
+</body>
+
+</html>
