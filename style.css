@@ -113,14 +113,14 @@ body {
         }
 
         .bottom-bar {
-            color: #fff; /* Text color */
-            text-align: center; /* Center-align text */
+            color: #fff;
+            text-align: center;
             font-size-adjust: 0.4;
-            padding: 10px; /* Adjust padding as needed */
-            position: fixed; /* Fixed position at the bottom */
+            padding: 10px;
+            position: fixed;
             left: 0;
             bottom: 0;
-            width: 100%; /* Full width */
+            width: 95vw;
             background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
             backdrop-filter: blur(5px); /* Adds blur effect */
             z-index: 1;
