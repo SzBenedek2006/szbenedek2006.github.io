@@ -115,6 +115,7 @@ body {
         .bottom-bar {
             color: #fff; /* Text color */
             text-align: center; /* Center-align text */
+            font-size-adjust: 0.4;
             padding: 10px; /* Adjust padding as needed */
             position: fixed; /* Fixed position at the bottom */
             left: 0;
