@@ -10,7 +10,10 @@ body {
             margin: 0;
             display: flex;
             flex-direction: column;
+
         }
+
+
 
         /*
          .top-bar {
@@ -27,6 +30,54 @@ body {
         }
         */
 
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999; /* Ensure it appears above other elements */
+            backdrop-filter: blur(10px);
+            animation: hideWelcome 2.5s ease-in-out forwards;
+
+        }
+
+        .welcome-screen h1 {
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+            animation: hideWelcomeText 2.5s ease-in-out forwards;
+        }
+
+        /* Animation to hide the welcome screen */
+        @keyframes hideWelcome {
+            50%
+            {
+                backdrop-filter: blur(10px);
+            }
+
+            100%
+            {
+                backdrop-filter: blur(0px);
+                display: none; /* Hide the element after animation */
+            }
+        }
+
+        @keyframes hideWelcomeText {
+            50%
+            {
+                opacity: 1; /* Start with full opacity */
+
+            }
+            100%
+            {
+                opacity: 0; /* Fade out to full transparency */
+                display: none; /* Hide the element after animation */
+            }
+        }
 
         .container { /*-----------------------------------------------------------*/
 
@@ -45,13 +96,27 @@ body {
             justify-content: center;
             z-index: 0;
             align-items: center;
+            animation: fadeIn 3s ease-in-out forwards;
 
 
 
 
+        }
 
+        @keyframes fadeIn {
+            0%
+            {
+                opacity: 0;
+            }
+            50%
+            {
+                opacity: 0;
 
-
+            }
+            100%
+            {
+                opacity: 1;
+            }
         }
 
         .header {
@@ -124,5 +189,5 @@ body {
             background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
             backdrop-filter: blur(5px); /* Adds blur effect */
             z-index: 1;
-
+            animation: fadeIn 3s ease-in-out forwards;
         }
