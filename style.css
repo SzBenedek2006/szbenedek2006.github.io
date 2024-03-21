@@ -3,10 +3,10 @@ body {
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-            background-image: url('background-image.jpg'); /* Specify the path to your background image */
-            background-size: cover; /* Cover the entire viewport */
-            background-position: center; /* Center the background image */
-            /*height: 100vh;*/
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            /*height: 100vh;*/ /* This is needed for the background allignment for some weird reason*/
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -41,7 +41,7 @@ body {
             align-items: center;
             z-index: 999; /* Ensure it appears above other elements */
             backdrop-filter: blur(15px);
-            animation: hideWelcome 2.5s ease-in-out forwards;
+            animation: hideWelcome 2s ease-in-out forwards;
 
         }
 
@@ -49,7 +49,7 @@ body {
             font-size: 48px;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
-            animation: hideWelcomeText 2.5s ease-in-out forwards;
+            animation: hideWelcomeText 2s ease-in-out forwards;
         }
 
         /* Animation to hide the welcome screen */
@@ -62,7 +62,6 @@ body {
             100%
             {
                 backdrop-filter: blur(0px);
-                display: none;
                 z-index: 0;
             }
         }
@@ -102,11 +101,11 @@ body {
             background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 65);
-            backdrop-filter: blur(5px); /* Adds blur effect */
+            backdrop-filter: blur(7px); /* Adds blur effect */
             justify-content: center;
             z-index: 0;
             align-items: center;
-            animation: fadeIn 3s ease-in-out forwards;
+            animation: fadeIn 2s ease-in-out forwards;
 
 
 
@@ -171,12 +170,33 @@ body {
         .about-me {
             font-family: 'Open Sans', medium;
             text-align: justify;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.25);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
+            /*backdrop-filter: blur(20px);*/ /* Web dev, especially css and js is the shittiest thing I ever experienced. EVER.*/
             color: #000;
+            backdrop-filter: blur(10px);
+            animation: fadeInAboutme 3s ease-in-out forwards;
+        }
+
+        @keyframes fadeInAboutme {
+            0%
+            {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+            }
+            50%
+            {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+
+            }
+            100%
+            {
+                opacity: 1;
+
+            }
         }
 
         .bottom-bar {
@@ -189,7 +209,7 @@ body {
             bottom: 0;
             width: 95vw;
             background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
-            backdrop-filter: blur(5px); /* Adds blur effect */
+            backdrop-filter: blur(7px); /* Adds blur effect */
             z-index: 1;
-            animation: fadeIn 3s ease-in-out forwards;
+            animation: fadeIn 2s ease-in-out forwards;
         }
