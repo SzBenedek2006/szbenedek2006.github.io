@@ -16,7 +16,7 @@ body {
         }
 
         .loaded {
-            animation: highres 1s ease-in-out forwards;
+            animation: highres 6s ease-in-out forwards;
         }
 
 
