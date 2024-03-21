@@ -40,7 +40,7 @@ body {
             justify-content: center;
             align-items: center;
             z-index: 999; /* Ensure it appears above other elements */
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             animation: hideWelcome 2.5s ease-in-out forwards;
 
         }
@@ -56,13 +56,13 @@ body {
         @keyframes hideWelcome {
             50%
             {
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(15px);
             }
 
             100%
             {
                 backdrop-filter: blur(0px);
-                display: none; /* Hide the element after animation */
+                display: none;
                 z-index: 0;
             }
         }
@@ -70,13 +70,21 @@ body {
         @keyframes hideWelcomeText {
             50%
             {
-                opacity: 1; /* Start with full opacity */
+                opacity: 1;
 
+            }
+            99%
+            {
+                opacity: 0;
+                display: none;
+                font-size: 48px;
+                z-index: 0;
             }
             100%
             {
-                opacity: 0; /* Fade out to full transparency */
-                display: none; /* Hide the element after animation */
+                font-size: 0;
+                opacity: 0;
+                display: none;
                 z-index: 0;
             }
         }
@@ -109,10 +117,12 @@ body {
             0%
             {
                 opacity: 0;
+                backdrop-filter: blur(0px);
             }
             50%
             {
                 opacity: 0;
+                backdrop-filter: blur(0px);
 
             }
             100%
