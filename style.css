@@ -157,11 +157,36 @@ body {
 
         .menu {
             display: none;
-            text-align: center;
-            margin-bottom: 20px;
+
+            text-align: justify;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 20px;
+            border-radius: 10px;
+            color: #000;
+            animation: fadeInMenu 1s ease-in-out forwards;
         }
 
+        .menu-entry {
+            margin: 80px 10px;
+            color: #fff;
+            opacity: 0.5;
+            text-decoration: none;
+            text-align: center;
+            font-size: 15px;
+        }
 
+        @keyframes fadeInMenu {
+            0%
+            {
+                opacity: 0;
+            }
+
+            100%
+            {
+                opacity: 1;
+
+            }
+        }
 
 
 
