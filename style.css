@@ -10,6 +10,7 @@ body {
             height: 100vh; /* This is needed for the background allignment for some weird reason*/
             margin: 0;
             display: flex;
+            background-attachment: fixed;
             flex-direction: column;
             transition: background-image 1s;
 
@@ -156,7 +157,8 @@ body {
 
         .menu {
             display: none;
-
+            text-align: center;
+            margin-bottom: 20px;
         }
 
 
