@@ -21,6 +21,7 @@ async function fetchProfileImage() {
     }
 }
 
+// Dynamically load high res background
 var img = new Image();
 
 // Set the src attribute to the URL of the high-resolution image
@@ -31,3 +32,18 @@ img.onload = function() {
     document.body.style.backgroundImage = 'url(' + img.src + ')';
     document.body.classList.add('loaded');
 };
+
+
+// Button
+document.addEventListener('DOMContentLoaded', function () {
+            var menuButton = document.getElementById('toggle-menu');
+            var menu = document.getElementById('menu');
+
+            menuButton.addEventListener('click', function () {
+                if (menu.style.display === 'none') {
+                    menu.style.display = 'block';
+                } else {
+                    menu.style.display = 'none';
+                }
+            });
+        });

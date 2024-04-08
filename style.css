@@ -154,6 +154,14 @@ body {
             z-index: 9999; /* Ensure it appears above other elements */
         }
 
+        .menu {
+            display: none;
+
+        }
+
+
+
+
 
         .header {
             justify-content: center;
