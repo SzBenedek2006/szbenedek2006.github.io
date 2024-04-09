@@ -36,17 +36,19 @@ img.onload = function() {
 
 // Button
 document.addEventListener('DOMContentLoaded', function () {
-            var menuButton = document.getElementById('toggle-menu');
-            var menu = document.getElementById('menu');
-            var headerContents = document.querySelector('.header');
+    var menuButton = document.getElementById('toggle-menu');
+    var menu = document.getElementById('menu');
+    var headerContents = document.querySelector('.header');
 
-            menuButton.addEventListener('click', function () {
-                if (menu.style.display === 'none') {
-                    menu.style.display = 'block';
-                    headerContents.style.display = 'none'; // Hide header contents
-                } else {
-                    menu.style.display = 'none';
-                    headerContents.style.display = 'block'; // Show header contents
-                }
-            });
-        });
+    //menu.style.display = 'block'; // Initially display the menu
+
+    menuButton.addEventListener('click', function () {
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block';
+            headerContents.style.display = 'none'; // Hide header contents
+        } else {
+            menu.style.display = 'none';
+            headerContents.style.display = 'block'; // Show header contents
+        }
+    });
+});

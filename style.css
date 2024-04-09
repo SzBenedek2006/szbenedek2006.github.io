@@ -157,13 +157,22 @@ body {
 
         .menu {
             display: none;
-
             text-align: justify;
             background-color: rgba(255, 255, 255, 0);
             padding: 20px;
             border-radius: 10px;
             color: #000;
             animation: fadeInMenu 1s ease-in-out forwards;
+        }
+
+        .menu.active {
+            display: block;
+            text-align: justify;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 20px;
+            border-radius: 10px;
+            color: #000;
+            animation: fadeInMenu 1s ease-in-out backwards;
         }
 
         .menu-entry {
