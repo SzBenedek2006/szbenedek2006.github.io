@@ -245,6 +245,7 @@ body {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
             /*backdrop-filter: blur(20px);*/ /* Web dev, especially css and js is the shittiest thing I ever experienced. EVER.*/
             color: #000;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             animation: fadeInAboutme 3s ease-in-out forwards;
         }
