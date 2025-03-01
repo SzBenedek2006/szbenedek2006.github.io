@@ -141,7 +141,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensure it appears above other elements */
+    user-select: none;
+    z-index: 1; /* Ensure it appears above other elements */
 }
 
 .menu {
@@ -187,6 +188,20 @@ body {
     justify-content: center;
     text-align: center;
     margin-bottom: 30px;
+}
+
+#menu-toggle {
+    display: none; /* Added for menu toggle functionality */
+}
+
+/* New: When the checkbox is checked, show the menu */
+#menu-toggle:checked ~ .menu {
+    display: block; /* Added: Show the menu when checkbox is checked */
+}
+
+/* New: When the checkbox is checked, hide the header */
+#menu-toggle:checked ~ .header {
+    display: none; /* Added: Hide the header when checkbox is checked */
 }
 
 .profile-img {
