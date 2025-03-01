@@ -152,7 +152,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     color: #000;
-    animation: fadeInMenu 1s ease-in-out forwards;
+    animation: fadeInToggle 1s ease-in-out forwards;
 }
 
 .menu.active {
@@ -162,7 +162,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     color: #000;
-    animation: fadeInMenu 1s ease-in-out backwards;
+    animation: fadeInToggle 1s ease-in-out backwards;
 }
 
 .menu-entry {
@@ -174,7 +174,7 @@ body {
     font-size: 15px;
 }
 
-@keyframes fadeInMenu {
+@keyframes fadeInToggle {
     0% {
         opacity: 0;
     }
@@ -202,6 +202,10 @@ body {
 /* New: When the checkbox is checked, hide the header */
 #menu-toggle:checked ~ .header {
     display: none; /* Added: Hide the header when checkbox is checked */
+}
+#menu-toggle:checked ~ .about-me {
+    display: none;
+    animation: fadeInToggle 1s ease-in-out backwards;
 }
 
 .profile-img {
@@ -245,6 +249,21 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     animation: fadeInAboutme 3s ease-in-out forwards;
+}
+
+#menu-toggle:not(:checked) ~ .about-me {
+    animation: fadeInToggle 1s ease-in-out forwards;
+}
+
+@keyframes reappearAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInAboutme {
