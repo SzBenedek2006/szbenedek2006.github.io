@@ -1,70 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="About me" />
+        <meta
+            property="og:description"
+            content="Welcome to my personal website!"
+        />
+        <meta
+            property="og:image"
+            content="https://szbenedek2006.me/background-image.jpg"
+        />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="About me">
-    <meta property="og:description" content="Welcome to my personal website!">
-    <meta property="og:image" content="https://szbenedek2006.me/background-image.jpg">
+        <link
+            rel="image_src"
+            href="https://szbenedek2006.me/background-image.jpg"
+        />
+        <link rel="preload" href="low-res-background-image.jpg" as="image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
 
-    <link rel="image_src" href="https://szbenedek2006.me/background-image.jpg" />
-    <link rel="preload" href="low-res-background-image.jpg" as="image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+        <link rel="preload" href="background-image.jpg" as="image" />
 
-    <link rel="preload" href="background-image.jpg" as="image">
+        <title>About me</title>
+    </head>
 
-    <title>About me</title>
-
-</head>
-
-<body>
-    <!--<header class="top-bar">
+    <body>
+        <!--<header class="top-bar">
         <h1>Welcome to My Website</h1>
     </header>-->
-    <body>
-        <div id="preload" style="display: none;"></div>
+        <body>
+            <div id="preload" style="display: none"></div>
 
-        <div class="welcome-screen">
-            <h1>Welcome</h1>
-        </div>
-
-        <div class="container">
-
-            <button class="menu-button" id="toggle-menu">
-                <!-- Add icon here -->
-                <!-- You can replace the content of span with your preferred hamburger menu icon -->
-                <span>&#9776;</span>
-            </button>
-            <div class="menu" id="menu">
-                <p class="menu-entry">Nothing to see <a href="Test.html">here</a> / useless button.</p>
+            <div class="welcome-screen">
+                <h1 class="welcome-text">Welcome</h1>
             </div>
-            <div class="header">
-                <div class="profile-img" id="header-content">
-                    <img id="profile-image" src="" alt="Profile Image">
+
+            <div class="container">
+                <button class="menu-button" id="toggle-menu">
+                    <!-- Add icon here -->
+                    <!-- You can replace the content of span with your preferred hamburger menu icon -->
+                    <span>&#9776;</span>
+                </button>
+                <div class="menu" id="menu">
+                    <p class="menu-entry">
+                        Nothing to see <a href="Test.html">here</a> / useless
+                        button.
+                    </p>
                 </div>
-                <div class="social-links" id="header-content">
-                    <a href="https://github.com/SzBenedek2006" target="_blank">GitHub</a>
-                    <a href="https://www.instagram.com/szbenedek2006" target="_blank">Instagram</a>
+                <div class="header">
+                    <div class="profile-img" id="header-content">
+                        <img id="profile-image" src="" alt="Profile Image" />
+                    </div>
+                    <div class="social-links" id="header-content">
+                        <a
+                            href="https://github.com/SzBenedek2006"
+                            target="_blank"
+                            >GitHub</a
+                        >
+                        <a
+                            href="https://www.instagram.com/szbenedek2006"
+                            target="_blank"
+                            >Instagram</a
+                        >
+                    </div>
+                </div>
+
+                <div class="about-me">
+                    <h2>Welcome to my personal website!</h2>
+                    <p>
+                        I'm Benedek, a beginner programmer and photographer
+                        based in Hungary. I'm interested in low-level
+                        programming, especially in C, and Assembly. When I'm not
+                        coding, you can find me hiking in the nearby woods with
+                        my dog or a camera. Feel free to check out my GitHub and
+                        Insta profiles to see my latest projects and photos.
+                    </p>
                 </div>
             </div>
+        </body>
+        <footer class="bottom-bar">
+            <p>
+                If you would like to see something added, please let me know, or
+                contribute in GitHub.
+            </p>
+        </footer>
 
-            <div class="about-me">
-                <h2>Welcome to my personal website!</h2>
-                <p>I'm Benedek, a beginner programmer and photographer based in Hungary. I'm interested in low-level programming, especially in C, and Assembly. When I'm not coding, you can find me hiking in the nearby woods with my dog or a camera. Feel free to check out my GitHub and Insta profiles to see my latest projects and photos.</p>
-            </div>
-        </div>
+        <script src="dynamic.js"></script>
     </body>
-    <footer class="bottom-bar">
-        <p>If you would like to see something added, please let me know, or contribute in GitHub.</p>
-    </footer>
-
-
-
-<script src="dynamic.js"></script>
-</body>
-
 </html>

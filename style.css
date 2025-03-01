@@ -1,29 +1,25 @@
 body {
-            font-family: 'Source Code Pro', monospace;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            background-image: url('low-res-background-image.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh; /* This is needed for the background allignment for some weird reason*/
-            margin: 0;
-            display: flex;
-            background-attachment: fixed;
-            flex-direction: column;
-            transition: background-image 1s;
+    font-family: "Source Code Pro", monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    background-image: url("low-res-background-image.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* This is needed for the background allignment for some weird reason*/
+    margin: 0;
+    display: flex;
+    background-attachment: fixed;
+    flex-direction: column;
+    transition: background-image 1s;
+}
 
-        }
+.loaded {
+    animation: highres 6s ease-in-out forwards;
+}
 
-        .loaded {
-            animation: highres 6s ease-in-out forwards;
-        }
-
-
-
-
-        /*
+/*
          .top-bar {
             color: #fff;
             text-align: center;
@@ -38,248 +34,232 @@ body {
         }
         */
 
-        .welcome-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 999; /* Ensure it appears above other elements */
-            backdrop-filter: blur(15px);
-            animation: hideWelcome 2s ease-in-out forwards;
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /* Ensure it appears above other elements */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    animation: hideWelcome 2s ease-in-out forwards;
+}
 
-        }
+.welcome-text {
+    font-size: 48px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    animation: hideWelcomeText 2s ease-in-out forwards;
+}
 
-        .welcome-screen h1 {
-            font-size: 48px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
-            animation: hideWelcomeText 2s ease-in-out forwards;
-        }
+/* Animation to hide the welcome screen */
+@keyframes hideWelcome {
+    50% {
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+    99% {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+    100% {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        z-index: 0;
+    }
+}
 
-        /* Animation to hide the welcome screen */
-        @keyframes hideWelcome {
-            50%
-            {
-                backdrop-filter: blur(15px);
-            }
+@keyframes hideWelcomeText {
+    50% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+        display: none;
+        font-size: 48px;
+        //z-index: 0;
+    }
+    100% {
+        font-size: 0;
+        opacity: 0;
+        display: none;
+        z-index: 0;
+    }
+}
 
-            100%
-            {
-                backdrop-filter: blur(0px);
-                z-index: 0;
-            }
-        }
+.container {
+    /*-----------------------------------------------------------*/
 
-        @keyframes hideWelcomeText {
-            50%
-            {
-                opacity: 1;
+    max-height: 90vh;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 65);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    justify-content: center;
+    z-index: 0;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out forwards;
+}
 
-            }
-            99%
-            {
-                opacity: 0;
-                display: none;
-                font-size: 48px;
-                z-index: 0;
-            }
-            100%
-            {
-                font-size: 0;
-                opacity: 0;
-                display: none;
-                z-index: 0;
-            }
-        }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+    50% {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
-        .container { /*-----------------------------------------------------------*/
+.menu-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    border-radius: 25%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it appears above other elements */
+}
 
+.menu {
+    display: none;
+    text-align: justify;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 10px;
+    color: #000;
+    animation: fadeInMenu 1s ease-in-out forwards;
+}
 
+.menu.active {
+    display: block;
+    text-align: justify;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    border-radius: 10px;
+    color: #000;
+    animation: fadeInMenu 1s ease-in-out backwards;
+}
 
-            max-height: 90vh;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            margin-left: 20px;
-            margin-right: 20px;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 65);
-            backdrop-filter: blur(7px); /* Adds blur effect */
-            justify-content: center;
-            z-index: 0;
-            align-items: center;
-            animation: fadeIn 2s ease-in-out forwards;
+.menu-entry {
+    margin: 80px 10px;
+    color: #fff;
+    opacity: 0.5;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+}
 
+@keyframes fadeInMenu {
+    0% {
+        opacity: 0;
+    }
 
+    100% {
+        opacity: 1;
+    }
+}
 
+.header {
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        }
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
 
-        @keyframes fadeIn {
-            0%
-            {
-                opacity: 0;
-                backdrop-filter: blur(0px);
-            }
-            50%
-            {
-                opacity: 0;
-                backdrop-filter: blur(0px);
+.profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
-            }
-            100%
-            {
-                opacity: 1;
-            }
-        }
+.social-links {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .menu-button {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: none;
-            border-radius: 25%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999; /* Ensure it appears above other elements */
-        }
+.social-links a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
 
-        .menu {
-            display: none;
-            text-align: justify;
-            background-color: rgba(255, 255, 255, 0);
-            padding: 20px;
-            border-radius: 10px;
-            color: #000;
-            animation: fadeInMenu 1s ease-in-out forwards;
-        }
+.about-me {
+    font-family: "Open Sans", medium;
+    text-align: justify;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    /*backdrop-filter: blur(20px);*/ /* Web dev, especially css and js is the shittiest thing I ever experienced. EVER.*/
+    color: #000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    animation: fadeInAboutme 3s ease-in-out forwards;
+}
 
-        .menu.active {
-            display: block;
-            text-align: justify;
-            background-color: rgba(255, 255, 255, 0);
-            padding: 20px;
-            border-radius: 10px;
-            color: #000;
-            animation: fadeInMenu 1s ease-in-out backwards;
-        }
+@keyframes fadeInAboutme {
+    0% {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+    50% {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
-        .menu-entry {
-            margin: 80px 10px;
-            color: #fff;
-            opacity: 0.5;
-            text-decoration: none;
-            text-align: center;
-            font-size: 15px;
-        }
-
-        @keyframes fadeInMenu {
-            0%
-            {
-                opacity: 0;
-            }
-
-            100%
-            {
-                opacity: 1;
-
-            }
-        }
-
-
-
-        .header {
-            justify-content: center;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 20px;
-            position: relative;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .social-links {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            margin: 0 10px;
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-        .about-me {
-            font-family: 'Open Sans', medium;
-            text-align: justify;
-            background-color: rgba(255, 255, 255, 0.25);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-            /*backdrop-filter: blur(20px);*/ /* Web dev, especially css and js is the shittiest thing I ever experienced. EVER.*/
-            color: #000;
-            -webkit-backdrop-filter: blur(10px);
-            backdrop-filter: blur(10px);
-            animation: fadeInAboutme 3s ease-in-out forwards;
-        }
-
-        @keyframes fadeInAboutme {
-            0%
-            {
-                opacity: 0;
-                backdrop-filter: blur(0px);
-            }
-            50%
-            {
-                opacity: 0;
-                backdrop-filter: blur(0px);
-
-            }
-            100%
-            {
-                opacity: 1;
-
-            }
-        }
-
-        .bottom-bar {
-            color: #fff;
-            text-align: center;
-            font-size-adjust: 0.4;
-            padding: 10px;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 95vw;
-            background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
-            backdrop-filter: blur(7px); /* Adds blur effect */
-            z-index: 1;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
+.bottom-bar {
+    color: #fff;
+    text-align: center;
+    font-size-adjust: 0.4;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 95vw;
+    background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    z-index: 1;
+    animation: fadeIn 2s ease-in-out forwards;
+}
