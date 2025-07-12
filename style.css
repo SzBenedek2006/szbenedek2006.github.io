@@ -56,44 +56,12 @@ body {
     animation: hideWelcomeText 2s ease-in-out forwards;
 }
 
-/* Animation to hide the welcome screen */
-@keyframes hideWelcome {
-    50% {
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-    }
-    99% {
-        backdrop-filter: blur(0px);
-        -webkit-backdrop-filter: blur(0px);
-    }
-    100% {
-        backdrop-filter: blur(0px);
-        -webkit-backdrop-filter: blur(0px);
-        z-index: 0;
-    }
-}
 
-@keyframes hideWelcomeText {
-    50% {
-        opacity: 1;
-    }
-    99% {
-        opacity: 0;
-        display: none;
-        font-size: 48px;
-        //z-index: 0;
-    }
-    100% {
-        font-size: 0;
-        opacity: 0;
-        display: none;
-        z-index: 0;
-    }
-}
 
 .container {
     /*-----------------------------------------------------------*/
-
+    display: block;
+    overflow-x: auto;
     max-height: 90vh;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -111,27 +79,14 @@ body {
     animation: fadeIn 2s ease-in-out forwards;
 }
 
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        backdrop-filter: blur(0px);
-        -webkit-backdrop-filter: blur(0px);
-    }
-    50% {
-        opacity: 0;
-        backdrop-filter: blur(0px);
-        -webkit-backdrop-filter: blur(0px);
-    }
-    100% {
-        opacity: 1;
-    }
-}
+
 
 .menu-button {
     position: absolute;
     top: 20px;
     left: 20px;
     background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(1px);
     color: white;
     border: none;
     border-radius: 25%;
@@ -145,27 +100,7 @@ body {
     z-index: 1; /* Ensure it appears above other elements */
 }
 
-.menu {
-    display: none;
-    text-align: justify;
-    background-color: rgba(255, 255, 255, 0);
-    padding: 20px;
-    border-radius: 10px;
-    color: #000;
-    animation: fadeInToggle 1s ease-in-out forwards;
-}
-
-.menu.active {
-    display: block;
-    text-align: justify;
-    background-color: rgba(255, 255, 255, 0);
-    padding: 20px;
-    border-radius: 10px;
-    color: #000;
-    animation: fadeInToggle 1s ease-in-out backwards;
-}
-
-.menu-entry {
+.menu-entry-old {
     margin: 80px 10px;
     color: #fff;
     opacity: 0.5;
@@ -174,20 +109,47 @@ body {
     font-size: 15px;
 }
 
-@keyframes fadeInToggle {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+.menu {
+    display: none; // Will set this to grid when the button is checked, this is the default state.
+    justify-items: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 50%;
+    box-sizing: border-box; /* NEW: Include padding in width calculation */
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    color: #000;
+    animation: fadeInToggle 1s ease-in-out forwards;
 }
+
+.menu-entry {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 10px;
+    border: none;
+    border-radius: 25%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    z-index: 1; /* Ensure it appears above other elements */
+    list-style: none;
+}
+
+
+
 
 .header {
     justify-content: center;
     text-align: center;
     margin-bottom: 30px;
+    animation: fadeInAboutme 1s ease-in-out forwards; //FIXME
 }
 
 #menu-toggle {
@@ -196,16 +158,25 @@ body {
 
 /* New: When the checkbox is checked, show the menu */
 #menu-toggle:checked ~ .menu {
-    display: block; /* Added: Show the menu when checkbox is checked */
+    display: grid; /* Added: Show the menu when checkbox is checked */
+    grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
 }
 
 /* New: When the checkbox is checked, hide the header */
 #menu-toggle:checked ~ .header {
     display: none; /* Added: Hide the header when checkbox is checked */
 }
-#menu-toggle:checked ~ .about-me {
+#menu-toggle:checked ~ .about-me{
     display: none;
-    animation: fadeInToggle 1s ease-in-out backwards;
+
+}
+
+#menu-toggle:checked ~ #note {
+    display: block;
+    color: grey;
+    text-align: center;
+    font-size-adjust: 0.4;
+    animation: fadeIn 2s ease-in-out forwards;
 }
 
 .profile-img {
@@ -255,6 +226,100 @@ body {
     animation: fadeInToggle 1s ease-in-out forwards;
 }
 
+
+
+.bottom-bar {
+    color: #fff;
+    text-align: center;
+    font-size-adjust: 0.4;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    z-index: 1;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+#note {
+    display: none;
+
+}
+
+
+
+/*
+
+*******************************ANIMATIONS*******************************
+
+*/
+
+
+
+/* Animation to hide the welcome screen */
+@keyframes hideWelcome {
+    50% {
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+    97% {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+    98% {
+        backdrop-filter: unset;
+        -webkit-backdrop-filter: unset;
+    }
+    100% {
+        backdrop-filter: unset;
+        -webkit-backdrop-filter: unset;
+        z-index: 0;
+    }
+}
+
+@keyframes hideWelcomeText {
+    50% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+        display: none;
+        font-size: 48px;
+        //z-index: 0;
+    }
+    100% {
+        font-size: 0;
+        opacity: 0;
+        display: none;
+        z-index: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInToggle {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @keyframes reappearAnimation {
     from {
         opacity: 0;
@@ -280,20 +345,4 @@ body {
     100% {
         opacity: 1;
     }
-}
-
-.bottom-bar {
-    color: #fff;
-    text-align: center;
-    font-size-adjust: 0.4;
-    padding: 10px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 95vw;
-    background-color: rgba(0, 0, 0, 0.2); /* Changed opacity for translucency */
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
-    z-index: 1;
-    animation: fadeIn 2s ease-in-out forwards;
 }
