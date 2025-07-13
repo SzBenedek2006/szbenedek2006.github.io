@@ -2,7 +2,7 @@ body {
     font-family: "Source Code Pro", monospace;
     margin: 0;
     padding: 0;
-    //background-color: #f5f5f5;
+    /*background-color: #f5f5f5;*/
     background-image: url("background-image-progressive.jpg");
     background-size: cover;
     background-position: center;
@@ -12,7 +12,8 @@ body {
     display: flex;
     background-attachment: fixed;
     flex-direction: column;
-    //transition: background-image 1s;
+    /*transition: background-image 1s;*/
+
 }
 
 .loaded {
@@ -111,7 +112,7 @@ body {
 }
 
 .menu {
-    display: none; // Will set this to grid when the button is checked, this is the default state.
+    display: none; /* Will set this to grid when the button is checked, this is the default state.*/
     justify-items: center;
     align-items: center;
     gap: 15px;
@@ -150,7 +151,7 @@ body {
     justify-content: center;
     text-align: center;
     margin-bottom: 30px;
-    animation: fadeInAboutme 1s ease-in-out forwards; //FIXME
+    animation: fadeInAboutme 1s ease-in-out forwards; /*FIXME*/
 }
 
 #menu-toggle {
@@ -289,7 +290,7 @@ body {
         opacity: 0;
         display: none;
         font-size: 48px;
-        //z-index: 0;
+        /*z-index: 0;*/
     }
     100% {
         font-size: 0;
