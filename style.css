@@ -4,10 +4,6 @@ body {
     padding: 0;
     /*background-color: #f5f5f5;*/
     
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; /* This is needed for the background allignment for some weird reason*/
     margin: 0;
     display: flex;
     background-attachment: fixed;
@@ -16,9 +12,6 @@ body {
 
 }
 
-.loaded {
-    animation: highres 6s ease-in-out forwards;
-}
 
 /*
          .top-bar {
@@ -181,6 +174,10 @@ body {
     animation: fadeIn 2s ease-in-out forwards;
 }
 
+#profile-image {
+    width: unset;
+}
+
 .profile-img {
     width: 150px;
     height: 150px;
@@ -198,6 +195,7 @@ body {
     border-radius: 50%;
 }
 
+/* Make this a grid? */
 .social-links {
     text-align: center;
     margin-bottom: 20px;

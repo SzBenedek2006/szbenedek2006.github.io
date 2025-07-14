@@ -24,6 +24,13 @@
         <style>
             body {
                 background-image: url("background-image-progressive.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 100vh; /* This is needed for the background allignment for some weird reason*/
+            }
+            #profile-image {
+                width: 25vw;
             }
            
         </style>
@@ -36,76 +43,74 @@
         />
 
         
+        
         <link rel="stylesheet" href="style.css" />
+        
+        
 
         <title>About me</title>
     </head>
 
     <body>
-        <!--<header class="top-bar">
-        <h1>Welcome to My Website</h1>
-    </header>-->
-        <body>
-            <div id="preload" style="display: none"></div>
+        <div id="preload" style="display: none"></div>
 
-            <div class="welcome-screen">
-                <h1 class="welcome-text">Welcome</h1>
+        <div class="welcome-screen">
+            <h1 class="welcome-text">Welcome</h1>
+        </div>
+
+        <div class="container">
+            <input type="checkbox" id="menu-toggle" hidden />
+            <label class="menu-button" for="menu-toggle">
+                <span>&#9776;</span>
+            </label>
+
+            <div class="menu" id="menu">
+                <!---
+                <div class="menu-entry">Test</div>
+                --->
             </div>
 
-            <div class="container">
-                <input type="checkbox" id="menu-toggle" hidden />
-                <label class="menu-button" for="menu-toggle">
-                    <span>&#9776;</span>
-                </label>
+            <p id="note">My projects will be here soon</p>
 
-                <div class="menu" id="menu">
-                    <!---
-                    <div class="menu-entry">Test</div>
-                    --->
+            <div class="header">
+                <div class="profile-img">
+                    <img
+                        id="profile-image"
+                        src="pfp-progressive.jpg"
+                        alt="Profile Image"
+                    />
                 </div>
-
-                <p id="note">My projects will be here soon</p>
-
-                <div class="header">
-                    <div class="profile-img" id="header-content">
-                        <img
-                            id="profile-image"
-                            src="pfp-progressive.jpg"
-                            alt="Profile Image"
-                        />
-                    </div>
-                    <div class="social-links" id="header-content">
-                        <a
-                            href="https://github.com/SzBenedek2006"
-                            target="_blank"
-                            >GitHub</a
-                        >
-                        <a
-                            href="https://www.instagram.com/szbenedek2006"
-                            target="_blank"
-                            >Instagram</a
-                        >
-                    </div>
-                </div>
-
-                <div class="about-me">
-                    <h2>Welcome to my personal website!</h2>
-                    <p>
-                        I'm Benedek, a beginner programmer and photographer
-                        based in Hungary. I'm interested in low-level
-                        programming, especially in C, and Assembly. When I'm not
-                        coding, you can find me hiking in the nearby woods with
-                        my dog or a camera. Feel free to check out my GitHub and
-                        Insta profiles to see my latest projects and photos.
-                    </p>
+                <div class="social-links">
+                    <a
+                        href="https://github.com/SzBenedek2006"
+                        target="_blank"
+                        >GitHub</a
+                    >
+                    <a
+                        href="https://www.instagram.com/szbenedek2006"
+                        target="_blank"
+                        >Instagram</a
+                    >
                 </div>
             </div>
-        </body>
-        <footer class="bottom-bar">
-            <p>
-                If you would like to see something added, please let me know, or
-                contribute in GitHub.
-            </p>
-        </footer>
+
+            <div class="about-me">
+                <h2>Welcome to my personal website!</h2>
+                <p>
+                    I'm Benedek, a beginner programmer and photographer
+                    based in Hungary. I'm interested in low-level
+                    programming, especially in C, and Assembly. When I'm not
+                    coding, you can find me hiking in the nearby woods with
+                    my dog or a camera. Feel free to check out my GitHub and
+                    Insta profiles to see my latest projects and photos.
+                </p>
+            </div>
+        </div>
     </body>
+    <footer class="bottom-bar">
+        <p>
+            If you would like to see something added, please let me know, or
+            contribute in GitHub.
+        </p>
+    </footer>
 </html>
